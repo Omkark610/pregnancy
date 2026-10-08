@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nine Months – A Pregnancy Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a0f2e;--bg2:#2a1646;--fg:#f6ecf4;--mut:#bba9c8;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.14);--acc:#f4a6c8;--gold:#ffd6a5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fdf1f4;--bg2:#f6dfe9;--fg:#2c1838;--mut:#6d5a7a;--card:rgba(255,255,255,.7);--line:rgba(60,20,70,.15);--acc:#b0346f;--gold:#a9652a}}
+:root[data-theme="light"]{--bg:#fdf1f4;--bg2:#f6dfe9;--fg:#2c1838;--mut:#6d5a7a;--card:rgba(255,255,255,.7);--line:rgba(60,20,70,.15);--acc:#b0346f;--gold:#a9652a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.65 Manrope,system-ui,sans-serif}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.1;margin:0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;gap:22px;justify-content:center;padding:14px;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line);overflow-x:auto}
+nav a{color:var(--mut);text-decoration:none;font-size:14px;white-space:nowrap}nav a:hover{color:var(--fg)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+#hero{position:relative;height:calc(100svh - 50px);min-height:560px;background:radial-gradient(ellipse at 50% 45%,var(--bg2),var(--bg) 70%);overflow:hidden}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ov{position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,4vw,48px)}
+.ov>*{pointer-events:auto}
+.ov h1{font-size:clamp(44px,8vw,104px);max-width:9ch;letter-spacing:-.02em}
+.ov h1+p{color:var(--mut);max-width:34ch;margin:12px 0 0}
+.info{align-self:flex-end;width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;backdrop-filter:blur(16px)}
+.info h2{font-size:30px;color:var(--gold)}.info small{color:var(--acc);font-weight:600}
+.info p{margin:8px 0 0;font-size:14.5px}
+.stat{display:flex;gap:18px;margin-top:12px;font-size:13px;color:var(--mut)}.stat b{display:block;color:var(--fg);font-size:15px}
+.ctl{display:flex;gap:12px;align-items:center;margin-top:18px}
+.ctl button{border:1px solid var(--line);background:var(--card);color:var(--fg);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:15px}
+.dots{display:flex;gap:6px;flex-wrap:wrap}
+.dots button{width:34px;height:34px;font-size:13px;font-family:inherit}.dots button.on{background:var(--acc);color:#2a0f26;border-color:var(--acc)}
+input[type=range]{flex:1;min-width:80px;accent-color:var(--acc)}
+section.s{max-width:1080px;margin:0 auto;padding:clamp(56px,9vw,110px) 22px 0}
+.s>h2{font-size:clamp(36px,5vw,60px)}.s>p.lead{color:var(--mut);max-width:60ch;margin:12px 0 32px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.c h3{font-size:25px;color:var(--gold)}.c .t{color:var(--acc);font-size:13px;font-weight:600;margin:2px 0 8px}.c p,.c li{font-size:14.5px;color:var(--mut);margin:0}
+.c ul{padding-left:18px;margin:8px 0 0}.c.w{border-color:var(--acc)}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:14px;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:none;color:var(--mut);cursor:pointer}
+.tabs button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tl{border-left:2px solid var(--line);margin-left:8px}
+.tl div{position:relative;padding:0 0 28px 28px}.tl div:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--acc)}
+.tl h3{font-size:26px}.tl b{color:var(--acc);font-size:13px;font-weight:600}.tl p{margin:4px 0 0;color:var(--mut);font-size:14.5px;max-width:70ch}
+footer{max-width:1080px;margin:90px auto 0;padding:26px 22px 60px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+@media(max-width:700px){.info{align-self:stretch}.ov h1{font-size:44px}.info p{display:none}#hero{height:auto;min-height:calc(100svh - 50px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<nav><a href="#top">Journey</a><a href="#food">Food</a><a href="#move">Exercise</a><a href="#care">Checkups</a><a href="#know">Good to know</a></nav>
+<header id="hero"><canvas id="cv" aria-label="3D animation: fertilisation to birth over nine months"></canvas>
+<div class="ov"><div id="top"><h1>Life</h1><p>Watch a single egg meet a sperm cell and grow into a newborn. Drag the slider or press play.</p></div>
+<div><div class="info" aria-live="polite"><small id="wk"></small><h2 id="tt"></h2><p id="tx"></p><div class="stat"><span><b id="sz"></b>Size</span><span><b id="cp"></b>Looks like</span></div></div>
+<div class="ctl"><button id="pl" aria-label="Play or pause">❚❚</button><div class="dots" id="dots"></div><input id="rg" type="range" min="0" max="9" step="0.005" value="0" aria-label="Pregnancy timeline"></div></div></div></header>
+
+<section class="s" id="food"><h2>What to eat</h2><p class="lead">Aim for colour, variety and small, regular meals. You need about 300 extra calories a day from the second trimester, not double.</p><div class="g" id="fg"></div></section>
+<section class="s" id="move"><h2>Staying active</h2><p class="lead">About 150 minutes of moderate movement a week is a good target if your doctor agrees. You should be able to talk while you exercise.</p><div class="tabs" id="tb"></div><div class="g" id="ex"></div></section>
+<section class="s" id="care"><h2>Your checkup routine</h2><p class="lead">Typical schedule: monthly visits until week 28, every two weeks until week 36, then weekly until birth. Your doctor may adjust this for you.</p><div class="tl" id="tl"></div></section>
+<section class="s" id="know"><h2>Good to know</h2><p class="lead">Small habits that make a big difference.</p><div class="g" id="kn"></div></section>
+<footer>This guide is general information, not medical advice. Every pregnancy is different, so follow your own doctor or midwife. The animation is an artistic simplification of development.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const M=[["Weeks 1–4","Fertilisation and first cells","0.2 mm to 5 mm","A poppy seed","One sperm breaks through the egg's shell. The cell then divides again and again, and the ball of cells settles into the womb lining."],
+["Weeks 5–8","The embryo takes shape","1.6 cm","A raspberry","The heart starts beating. Tiny buds appear where arms and legs will grow, and the brain and spine form."],
+["Weeks 9–13","Now a fetus","7 cm","A lime","Fingers, toes and nails form. Organs are in place and begin to work. The first trimester ends."],
+["Weeks 14–17","Growing fast","12 cm","An avocado","Muscles strengthen and the baby makes sucking and grasping movements. Sex may be visible on a scan."],
+["Weeks 18–22","First flutters","25 cm, 300 g","A mango","You may feel gentle kicks. Hair, eyebrows and a protective coating on the skin develop."],
+["Weeks 23–27","Hearing the world","35 cm, 800 g","A cauliflower","The baby hears your voice and loud sounds. Lungs start to build air sacs."],
+["Weeks 28–31","Eyes open","40 cm, 1.5 kg","A pineapple","Eyes open and blink. The brain grows quickly, and sleep and wake cycles appear."],
+["Weeks 32–35","Gaining weight","45 cm, 2.4 kg","A honeydew melon","Bones harden, fat builds under the skin, and most babies turn head-down."],
+["Weeks 36–40","Ready to meet you","50 cm, 3.3 kg","A small watermelon","Lungs are mature. The baby drops into the pelvis. Then comes birth: your baby arrives."]];
+const dots=$('#dots');M.forEach((_,i)=>{const b=document.createElement('button');b.textContent=i+1;b.setAttribute('aria-label','Month '+(i+1));b.onclick=()=>{play=false;$('#pl').textContent='▶';tgt=i?i+.7:0};dots.append(b)});
+let cur=0,tgt=0,play=true,last=-1;
+function ui(){const k=Math.min(8,Math.max(0,Math.ceil(cur-.001)-1+(cur<=0?0:0)));if(k===last)return;last=k;const d=M[k];$('#wk').textContent='Month '+(k+1)+' · '+d[0];$('#tt').textContent=d[1];$('#tx').textContent=d[4];$('#sz').textContent=d[2];$('#cp').textContent=d[3];[...dots.children].forEach((b,i)=>b.classList.toggle('on',i===k))}
+$('#pl').onclick=()=>{play=!play;$('#pl').textContent=play?'❚❚':'▶';if(play&&cur>8.95)tgt=cur=0};
+$('#rg').oninput=e=>{play=false;$('#pl').textContent='▶';tgt=+e.target.value};
+
+/* three.js */
+try{
+const cv=$('#cv'),hero=$('#hero');
+const R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));
+const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(42,1,.1,100);
+const sm=(x,a,b)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
+const rd=()=>{const v=new THREE.Vector3(Math.random()-.5,Math.random()-.5,Math.random()-.5);return v.length()<.01?rd():v.normalize()};
+sc.add(new THREE.AmbientLight(0xffe6f0,.8));
+const key=new THREE.PointLight(0xffd6a5,1.6,40);key.position.set(4,5,6);sc.add(key);
+const rim=new THREE.PointLight(0xf46fae,1.5,40);rim.position.set(-5,-2,3);sc.add(rim);
+function glowTex(){const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d'),g=x.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.4,'rgba(255,255,255,.35)');g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)}
+const GT=glowTex();
+const spr=(c,s,o)=>{const p=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:c,transparent:true,opacity:o,blending:THREE.AdditiveBlending,depthWrite:false}));p.scale.set(s,s,1);return p};
+const halo=spr(0xffa87a,12,.3);halo.position.z=-3;sc.add(halo);
+/* drifting orbs */
+const orbs=[];for(let i=0;i<40;i++){const o=spr(i%2?0xff9cc8:0xffd6a5,.6+Math.random()*1.4,.25);o.position.set((Math.random()-.5)*16,(Math.random()-.5)*10,-2-Math.random()*5);o.userData.s=.1+Math.random()*.25;o.userData.p=Math.random()*6;sc.add(o);orbs.push(o)}
+const pg=new THREE.BufferGeometry(),pp=[];for(let i=0;i<400;i++){const v=rd().multiplyScalar(4+Math.random()*10);pp.push(v.x,v.y,v.z)}
+pg.setAttribute('position',new THREE.Float32BufferAttribute(pp,3));
+const dust=new THREE.Points(pg,new THREE.PointsMaterial({map:GT,size:.2,color:0xffc9de,transparent:true,opacity:.7,blending:THREE.AdditiveBlending,depthWrite:false}));sc.add(dust);
+const SG=new THREE.SphereGeometry(1,32,24);
+const mat=(c,e)=>new THREE.MeshPhysicalMaterial({color:c,emissive:e,roughness:.4,clearcoat:.7});
+/* egg */
+const shell=new THREE.Mesh(SG,new THREE.MeshPhysicalMaterial({color:0xffe3c4,transparent:true,opacity:.25,roughness:.1,depthWrite:false}));sc.add(shell);
+const egl=spr(0xffd0a0,5,.55);sc.add(egl);
+const cg=new THREE.BufferGeometry(),cp=[];for(let i=0;i<90;i++){const v=rd().multiplyScalar(1.3);cp.push(v.x,v.y,v.z)}
+cg.setAttribute('position',new THREE.Float32BufferAttribute(cp,3));
+const corona=new THREE.Points(cg,new THREE.PointsMaterial({map:GT,size:.28,color:0xfff0d0,transparent:true,opacity:.9,blending:THREE.AdditiveBlending,depthWrite:false}));sc.add(corona);
+const ring=new THREE.Mesh(new THREE.TorusGeometry(1,.025,8,64),new THREE.MeshBasicMaterial({color:0xfff2c8,transparent:true,opacity:0,blending:THREE.AdditiveBlending}));sc.add(ring);
+const cells=new THREE.Group();sc.add(cells);const cm=mat(0xffc7d9,0x7a2552),CS=[];
+for(let i=0;i<32;i++){const m=new THREE.Mesh(SG,cm);m.userData.p=new THREE.Vector3();m.userData.r=.001;cells.add(m);CS.push(m)}
+function fib(i,n){if(n==1)return new THREE.Vector3();const y=1-2*(i+.5)/n,r=Math.sqrt(1-y*y),a=i*2.39996;return new THREE.Vector3(Math.cos(a)*r,y,Math.sin(a)*r)}
+/* sperm */
+const spG=[],hm=mat(0xffffff,0x6070d0),tm=mat(0xd8ccff,0x5560c0);
+for(let i=0;i<28;i++){const g=new THREE.Group(),h=new THREE.Mesh(SG,hm);h.scale.set(.11,.08,.16);g.add(h);g.tl=[];
+const gl=spr(0xaab4ff,.7,.6);g.add(gl);
+for(let j=0;j<16;j++){const t=new THREE.Mesh(SG,tm);t.scale.setScalar(.055*(1-j*.04));g.add(t);g.tl.push(t)}
+const d=rd();d.z=Math.abs(d.z)*.5+.1;d.normalize();g.dir=d;g.start=d.clone().multiplyScalar(3.8+Math.random()*2);g.ph=Math.random()*6;g.dl=Math.random()*.15;sc.add(g);spG.push(g)}
+/* fetus */
+const F=new THREE.Group(),fm=mat(0xffb9a3,0x6a2238);sc.add(F);
+const part=(x,y,z,sx,sy,sz,rz)=>{const m=new THREE.Mesh(SG,fm);m.position.set(x,y,z);m.scale.set(sx,sy,sz);m.rotation.z=rz||0;F.add(m);return m};
+const head=part(0,1,0,.55,.55,.55),body=part(0,.1,0,.5,.72,.45),
+aL=part(-.55,.35,.3,.14,.42,.14,.5),aR=part(.55,.35,.3,.14,.42,.14,-.5),
+lL=part(-.3,-.75,.35,.2,.5,.2,-.7),lR=part(.3,-.75,.35,.2,.5,.2,.7);
+part(-.42,.05,.5,.12,.12,.12);part(.42,.05,.5,.12,.12,.12);part(-.55,-1.1,.5,.14,.1,.2);part(.55,-1.1,.5,.14,.1,.2);
+const cord=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(0,0,.4),new THREE.Vector3(.5,-.3,.9),new THREE.Vector3(1.3,.2,.7),new THREE.Vector3(1.9,-.5,.2)]),30,.07,8),mat(0xe9a0c0,0x4a1438));F.add(cord);
+const fl=spr(0xffc0a0,6,0);F.add(fl);
+const amMat=new THREE.ShaderMaterial({transparent:true,side:THREE.FrontSide,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{o:{value:0}},
+vertexShader:'varying vec3 n;varying vec3 v;void main(){n=normalize(normalMatrix*normal);vec4 p=modelViewMatrix*vec4(position,1.);v=normalize(-p.xyz);gl_Position=projectionMatrix*p;}',
+fragmentShader:'varying vec3 n;varying vec3 v;uniform float o;void main(){float f=pow(1.-abs(dot(n,v)),2.4);gl_FragColor=vec4(vec3(1.,.55,.78)*f*1.4+vec3(.15,.05,.12),(f+.06)*o);}'});
+const am=new THREE.Mesh(new THREE.SphereGeometry(2.8,64,48),amMat);sc.add(am);
+function size(){const w=hero.clientWidth,h=hero.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();cam.userData.narrow=w<760}
+addEventListener('resize',size);size();
+let mx=0,my=0;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+const clk=new THREE.Clock(),V=new THREE.Vector3();
+function frame(){requestAnimationFrame(frame);const dt=Math.min(clk.getDelta(),.05),t=clk.elapsedTime,nr=cam.userData.narrow;
+if(play){tgt=Math.min(9,tgt+dt*.36);cur+=(tgt-cur)*Math.min(1,dt*4);if(tgt>=9&&cur>8.97){play=false;$('#pl').textContent='↻'}}else cur+=(tgt-cur)*Math.min(1,dt*3);
+const m=cur;$('#rg').value=m;ui();
+const cz=5.4+3.2*sm(m,.7,1.6)+(nr?2.5:0);
+cam.position.set(mx*1.2,-my*.8+(nr?-.4:0),cz);cam.lookAt(0,nr?-.4:0,0);
+dust.rotation.y=t*.03;halo.material.opacity=.25+.06*Math.sin(t*2)+.5*sm(m,8.5,9);
+orbs.forEach(o=>{o.position.y+=o.userData.s*dt;o.position.x+=Math.sin(t*.4+o.userData.p)*.003;if(o.position.y>6)o.position.y=-6});
+/* egg */
+const eo=1-sm(m,.4,.9);shell.visible=m<.95;shell.scale.setScalar(1.22+.02*Math.sin(t*2));shell.material.opacity=.25*eo;
+egl.material.opacity=.55*eo;egl.visible=eo>.01;
+const burst=sm(m,.2,.3);corona.visible=m<.8;corona.rotation.y=t*.2;corona.scale.setScalar(1+burst*.6);corona.material.opacity=.9*(1-sm(m,.3,.6));
+const rg=sm(m,.2,.3)*(1-sm(m,.3,.4));ring.visible=rg>.01;ring.scale.setScalar(1+3*sm(m,.22,.36));ring.material.opacity=.9*Math.sin(Math.PI*Math.min(1,Math.max(0,(m-.22)/.14)));ring.lookAt(cam.position);
+const n=m<.3?1:[2,4,8,16,32][Math.min(4,Math.floor((m-.3)/.1))];
+cells.visible=m<1.08;cells.scale.setScalar(1-.85*sm(m,.85,1.05));cells.rotation.y=t*.3;cells.rotation.x=t*.12;
+const rc=n==1?1:.8/Math.cbrt(n)*1.05;
+CS.forEach((c,i)=>{const on=i<n,tp=fib(i,n).multiplyScalar(n==1?0:1-rc*.85),tr=on?rc:.001;c.userData.p.lerp(tp,.12);c.userData.r+=(tr-c.userData.r)*.12;c.position.copy(c.userData.p);c.scale.setScalar(Math.max(.001,c.userData.r*(1+.02*Math.sin(t*3+i))))});
+/* sperm */
+const prog=sm(m,0,.22),fade=1-sm(m,.3,.4);
+spG.forEach((g,i)=>{g.visible=fade>.01&&m<.4;if(!g.visible)return;const p=Math.min(1,Math.max(0,prog*1.2-g.dl)),e=p*p*(3-2*p);
+V.copy(g.dir).multiplyScalar(i==0?Math.max(0,1.2-sm(m,.2,.28)*1.2):1.28);
+g.position.lerpVectors(g.start,V,e);g.position.x+=Math.sin(t*4+g.ph)*.12*(1-e);g.position.y+=Math.cos(t*3+g.ph)*.12*(1-e);
+g.lookAt(0,0,0);g.scale.setScalar(i==0?1:fade);
+g.tl.forEach((s,j)=>{s.position.set(Math.sin(t*16-j*.6+g.ph)*.06*(1+j*.25),0,-(j+1)*.11)})});
+/* fetus */
+const gm=Math.max(0,m-1),fs=m<.95?0:(.1+.9*Math.pow(gm/8,.8))*sm(m,.95,1.15);F.visible=fs>.01;
+const hs=1.5-.5*Math.min(1,gm/8);head.scale.setScalar(.55*hs);head.position.y=.4+.55*hs;
+const b=sm(m,8.45,9),beat=1+.02*Math.sin(t*9);
+F.scale.setScalar(Math.max(.001,fs*beat)*(1-.12*b));F.rotation.set(0,Math.sin(t*.4)*.5,.35*(1-b)+Math.PI*b*.92);F.position.set(0,-b*3.3+Math.sin(t*1.2)*.08,0);
+fl.material.opacity=.35*sm(m,.95,1.5);
+aL.rotation.z=.5+Math.sin(t*1.7)*.15*sm(m,3,5);lR.rotation.z=.7+Math.sin(t*1.3)*.2*sm(m,4,6);
+amMat.uniforms.o.value=sm(m,.9,1.4)*(1-b);am.scale.setScalar(1+.04*Math.sin(t*1.5)+.25*b);am.position.y=-b*1.2;
+key.intensity=1.6+3*Math.sin(b*3.14);
+R.render(sc,cam)}
+frame();
+}catch(e){console.error(e);document.querySelector('#hero').insertAdjacentHTML('beforeend','<p style="position:absolute;top:50%;left:0;right:0;text-align:center">3D animation needs WebGL.</p>')}
+
+/* content */
+const FD=[["Folate","400–600 mcg a day","Protects the baby's brain and spine. Take folic acid as your doctor advises.",["Spinach and methi","Dal and chickpeas","Oranges","Fortified cereals"]],
+["Iron","27 mg a day","Builds extra blood and prevents anaemia. Pair with vitamin C.",["Beetroot and dates","Eggs and lean meat","Pumpkin seeds","Lemon with meals"]],
+["Calcium","1,000 mg a day","Forms bones and teeth. Your own bones are protected too.",["Milk, curd, paneer","Ragi","Sesame seeds","Almonds"]],
+["Protein","About 70 g a day","Builds every new cell, from organs to muscle.",["Eggs and tofu","Dal, rajma, sprouts","Well-cooked chicken","Cooked fish"]],
+["Omega-3 (DHA)","Twice a week","Supports brain and eye growth.",["Salmon and sardines","Walnuts","Flaxseed and chia","Algae supplements"]],
+["Fibre and fluids","2–3 litres of water","Eases constipation and keeps you hydrated.",["Whole grains","Fruit and vegetables","Buttermilk, coconut water","Soaked oats"]]];
+$('#fg').innerHTML=FD.map(d=>`<div class="c"><h3>${d[0]}</h3><div class="t">${d[1]}</div><p>${d[2]}</p><ul>${d[3].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')+`<div class="c w"><h3>Limit or avoid</h3><div class="t">Safe-food rules</div><ul><li>Raw or undercooked meat, eggs and seafood</li><li>Unpasteurised milk and soft cheese</li><li>Shark, swordfish and king mackerel (high mercury)</li><li>Alcohol and smoking: none is safe</li><li>Caffeine: under 200 mg, about 2 cups of tea or coffee</li><li>Raw papaya, unwashed salad and roadside food</li><li>Liver and high-dose vitamin A</li></ul></div>`;
+const EX={"First trimester":[["Walk","20–30 minutes a day at an easy pace. Great for energy and nausea."],["Prenatal yoga","Gentle stretches and breathing. Skip deep twists."],["Swimming","Cool water supports your joints and avoids overheating."]],
+"Second trimester":[["Brisk walking","Add pace as your energy returns, about 30 minutes."],["Pelvic floor work","Do Kegels daily to prepare for birth and recovery."],["Stationary cycling","Low impact and steady. Avoid lying flat on your back for long."]],
+"Third trimester":[["Gentle walking","Short, frequent walks. Slow down if you feel breathless."],["Birth ball and squats","Supported squats and pelvic tilts open the pelvis."],["Breathing and stretching","Practise slow breathing for labour. Stretch your back and hips."]]};
+const tb=$('#tb');Object.keys(EX).forEach((k,i)=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>sel(k);tb.append(b)});
+function sel(k){[...tb.children].forEach(b=>b.classList.toggle('on',b.textContent==k));$('#ex').innerHTML=EX[k].map(d=>`<div class="c"><h3>${d[0]}</h3><p>${d[1]}</p></div>`).join('')+`<div class="c w"><h3>Stop and call your doctor if</h3><ul><li>You have bleeding or leaking fluid</li><li>You feel dizzy, faint or have chest pain</li><li>You get regular contractions or calf swelling</li><li>The baby moves less than usual</li></ul><p style="margin-top:10px">Avoid contact sports, hot yoga, heavy lifting and activities with a risk of falling.</p></div>`}
+sel("First trimester");
+const CK=[["Weeks 6–10","First visit","Confirm the pregnancy and due date with a scan. Blood group and Rh, haemoglobin, thyroid, urine and blood pressure checks. Start folic acid."],
+["Weeks 11–14","Nuchal translucency scan","Early screening scan and blood markers for chromosomal conditions."],
+["Weeks 18–22","Anomaly scan","Detailed scan of the baby's organs, spine and growth. First tetanus (Td) dose."],
+["Weeks 24–28","Sugar and blood tests","Glucose tolerance test for gestational diabetes and a repeat haemoglobin. Anti-D injection at 28 weeks if you are Rh negative."],
+["Weeks 28–36","Growth and position","Fortnightly visits. Growth scan, blood pressure, urine protein, kick counts, whooping cough (Tdap) vaccine and birth planning."],
+["Weeks 36–40","Weekly checks","Baby's position, heartbeat and cervix. Pack your hospital bag and learn the signs of labour."]];
+$('#tl').innerHTML=CK.map(d=>`<div><b>${d[0]}</b><h3>${d[1]}</h3><p>${d[2]}</p></div>`).join('');
+const KN=[["Supplements","Ask your doctor","Folic acid, iron, calcium and vitamin D are commonly advised. Do not self-prescribe doses.",0],
+["Count the kicks","From about week 28","Feel for 10 movements within 2 hours. Fewer than that: call your doctor the same day.",0],
+["Healthy weight gain","11–16 kg for a normal BMI","Gain is slow in the first trimester, then around 0.4 kg a week.",0],
+["Sleep and mood","Rest is work too","Sleep on your left side with a pillow between your knees. Talk about low mood or anxiety early.",0],
+["Hospital bag","Ready by week 36","ID and records, loose clothes, nursing bra, toiletries, baby clothes, blanket, snacks.",0],
+["Urgent warning signs","Go to hospital now","Heavy bleeding, severe headache, blurred vision, swollen face or hands, fever, fluid leaking, strong constant pain or no baby movement.",1]];
+$('#kn').innerHTML=KN.map(d=>`<div class="c${d[3]?' w':''}"><h3>${d[0]}</h3><div class="t">${d[1]}</div><p>${d[2]}</p></div>`).join('');
+</script></body></html>
